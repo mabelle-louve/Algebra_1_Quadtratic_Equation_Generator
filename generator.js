@@ -352,15 +352,8 @@ function generateAdvanced() {
 // ------------------------------------------------------------
 
 function generateSet(difficulty, count) {
-    // Parse first so we can check the real user input
-    let requestedCount = parseInt(count) || 10;
-
-    if (requestedCount > 40) {
-        alert("Warning: Limit is 40. Please reduce your request.");
-    }
-
-    // Now clamp it for the actual logic
-    count = Math.max(1, Math.min(40, requestedCount));
+    
+      count = Math.max(1, Math.min(40, parseInt(count) || 10));
 
   const allGenerators = {
     easy:     generateEasy,
@@ -421,6 +414,26 @@ function createProblemElement(problem, index) {
 // ------------------------------------------------------------
 //  UI actions
 // ------------------------------------------------------------
+function showToast(message, type = "info") {
+  document.getElementById("toast")?.remove();
+ 
+  const toast = document.createElement("div");
+  toast.id = "toast";
+  toast.className = `toast toast--${type}`;
+  toast.setAttribute("role", "status");
+  toast.setAttribute("aria-live", "polite");
+ 
+  const icon = type === "warn" ? "\u26a0\ufe0f" : "\u2139\ufe0f";
+  toast.innerHTML = `<span class="toast__icon">${icon}</span><span class="toast__msg">${message}</span>`;
+ 
+  document.body.prepend(toast);
+  requestAnimationFrame(() => toast.classList.add("toast--visible"));
+ 
+  setTimeout(() => {
+    toast.classList.remove("toast--visible");
+    toast.addEventListener("transitionend", () => toast.remove(), { once: true });
+  }, 3500);
+}
 
 function generateProblems() {
   const difficulty  = document.getElementById("difficulty").value;
