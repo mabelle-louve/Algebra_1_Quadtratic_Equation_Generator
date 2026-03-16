@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Algebra 1 Quadratic Equation Generator</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <h1>Algebra 1 Quadratic Equation Generator</h1>
+        
+        <form id="generatorForm">
+            <fieldset>
+                <legend>Problem Settings</legend>
+                
+                <div class="form-group">
+                    <label for="difficulty">Select Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="easy">Easy</option>  
+                        <option value="medium">Medium</option>   
+                        <option value="hard">Hard</option>
+                        <option value="advanced">Advanced</option>
+                        <option value="mixed">Random (All Levels)</option>   
+                    </select>
+                </div>
+
+                <div class="form-group" id="advancedLabel" style="display: none;">
+                    <label>
+                        <input type="checkbox" id="includeAdvanced">
+                        Include Advanced (Quadratic Formula)
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="count">Number of Problems:</label>
+                    <input type="number" id="count" value="10" min="1" max="40">
+                </div>
+            </fieldset>
+
+            <div class="button-group">
+                <button type="button" id="generate">Generate</button>
+                <button type="button" id="toggleAnswers">Show / Hide Answer Key</button>
+            </div>
+        </form>
+
+        <div id="problems" role="region" aria-live="polite" aria-label="Generated problems"></div>
+        
+        <script src="generator.js"></script>
+    </body>
+</html>
