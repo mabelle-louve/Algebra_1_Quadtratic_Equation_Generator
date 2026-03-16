@@ -440,6 +440,15 @@ function generateProblems() {
   const count       = parseInt(document.getElementById("count").value);
   const problemsDiv = document.getElementById("problems");
 
+  if (isNaN(rawCount) || rawCount < 1) {
+    showToast("Please enter a number between 1 and 40. Defaulting to 1.", "warn");
+  } else if (rawCount > 40) {
+    showToast(`${rawCount} is above the limit \u2014 showing the maximum of 40 problems.`, "warn");
+  }
+ 
+  const count = Math.max(1, Math.min(40, rawCount || 1));
+ 
+
   problemsDiv.innerHTML = "";
   answersVisible = false;
   document.getElementById("toggleAnswers").textContent = "Show / Hide Answer Key";
