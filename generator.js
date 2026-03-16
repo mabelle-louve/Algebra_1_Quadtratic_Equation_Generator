@@ -353,7 +353,7 @@ function generateAdvanced() {
 
 function generateSet(difficulty, count) {
   count = Math.max(1, Math.min(40, parseInt(count) || 10));
-  if (requestedAmount > 40) {
+  if (count > 40) {
     alert("Warning: Limit is 40. Please reduce your request.");
 }
 
