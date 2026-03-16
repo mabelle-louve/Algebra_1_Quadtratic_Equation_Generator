@@ -353,9 +353,7 @@ function generateAdvanced() {
 
 function generateSet(difficulty, count) {
     
-      count = Math.max(1, Math.min(40, parseInt(count) || 10));
-
-  const allGenerators = {
+   const allGenerators = {
     easy:     generateEasy,
     medium:   generateMedium,
     hard:     generateHard,
