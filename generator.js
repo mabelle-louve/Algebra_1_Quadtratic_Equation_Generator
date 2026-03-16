@@ -344,7 +344,7 @@ function generateAdvanced() {
   }
 
   // Advanced problems are always shown in standard form to reduce noise
-  return { equation: standardForm(a, b, c), roots, level: "advanced" };
+  return { equation: formatEquation(a, b, c, 0.95), roots, level: "advanced" };
 }
 
 // ------------------------------------------------------------
