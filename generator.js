@@ -41,7 +41,7 @@ function formatSign(n) {
  * and handling leading-coefficient edge cases cleanly.
  */
 function standardForm(a, b, c) {
-  const x2 = a === 1 ? "x²" : `${a}x²`;
+  const x2 = a === 1 ? "x^2" : `${a}x^2`;
 
   let bPart = "";
   if (b !== 0) {
@@ -148,7 +148,7 @@ function formatEquation(a, b, c, messyChance) {
   // Option A: move the constant to the RHS  →  ax² + bx = -c
   if (c !== 0) {
     options.push(() => {
-      const x2 = a === 1 ? "x²" : `${a}x²`;
+      const x2 = a === 1 ? "x^2" : `${a}x^2`;
       const bPart = b !== 0 ? ` ${formatSign(b)}x` : "";
       return `${x2}${bPart} = ${-c}`;
     });
@@ -157,7 +157,7 @@ function formatEquation(a, b, c, messyChance) {
   // Option B: move bx to the RHS  →  ax² + c = -bx
   if (b !== 0) {
     options.push(() => {
-      const x2 = a === 1 ? "x²" : `${a}x²`;
+      const x2 = a === 1 ? "x^2" : `${a}x^2`;
       const cPart = c !== 0 ? ` ${formatSign(c)}` : "";
       const rhs   = b === -1 ? "x" : `${-b}x`;
       return `${x2}${cPart} = ${rhs}`;
@@ -208,7 +208,7 @@ function formatEquation(a, b, c, messyChance) {
     const lhsC = c + j0;
 
     // Build LHS: lhsA·x² + lhsB·x + lhsC
-    const lhsX2    = lhsA === 1 ? "x²" : `${lhsA}x²`;
+    const lhsX2    = lhsA === 1 ? "x^2" : `${lhsA}x^2`;
     const lhsBPart = lhsB !== 0 ? ` ${formatSign(lhsB)}x` : "";
     const lhsCPart = lhsC !== 0 ? ` ${formatSign(lhsC)}` : "";
     const lhs = `${lhsX2}${lhsBPart}${lhsCPart}`;
@@ -224,7 +224,7 @@ function formatEquation(a, b, c, messyChance) {
         : (coeff < 0 ? `- ${termStr}` : `+ ${termStr}`));
     };
 
-    pushRhsTerm(j2, "x²");
+    pushRhsTerm(j2, "x^2");
     pushRhsTerm(j1, "x");
     pushRhsTerm(j0, "");
 
