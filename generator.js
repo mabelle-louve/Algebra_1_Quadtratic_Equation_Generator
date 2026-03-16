@@ -435,7 +435,7 @@ function showToast(message, type = "info") {
 
 function generateProblems() {
   const difficulty  = document.getElementById("difficulty").value;
-  const count       = parseInt(document.getElementById("count").value);
+  const rawCount       = parseInt(document.getElementById("count").value);
   const problemsDiv = document.getElementById("problems");
 
   if (isNaN(rawCount) || rawCount < 1) {
